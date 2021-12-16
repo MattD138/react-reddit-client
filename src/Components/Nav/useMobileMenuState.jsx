@@ -8,7 +8,7 @@ export const useMobileMenuState = () => {
     lg: false,
   })
   React.useEffect(() => {
-    if (isMobile == false) {
+    if (isMobile === false) {
       onClose()
     }
   }, [isMobile, onClose])

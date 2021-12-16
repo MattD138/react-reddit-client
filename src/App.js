@@ -1,7 +1,5 @@
 import React from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './Components/Nav/ColorModeSwitcher';
-import { Logo } from './Components/Nav/Logo';
 import { Box, Flex } from '@chakra-ui/react';
 import { MobileTopBar } from './Components/Nav/MobileTopBar';
 import { Sidebar } from './Components/Nav/Sidebar';

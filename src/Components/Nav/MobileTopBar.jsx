@@ -28,7 +28,7 @@ export const MobileTopBar = () => {
       }}
       borderBottomWidth="1px"
     >
-      <Logo h="6" iconColor="blue.600" />
+      <Logo h='5' w='40px' />
       <IconButton
         onClick={onOpen}
         variant="unstyled"

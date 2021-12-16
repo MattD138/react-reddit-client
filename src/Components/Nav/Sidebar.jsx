@@ -1,22 +1,9 @@
-import { Box, Divider, Flex, Heading, Image, Spacer, Stack, useColorModeValue as mode } from '@chakra-ui/react'
+import { Box, Divider, Flex, Heading, Spacer, Stack, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
-import {
-  FaRegBell,
-  FaHome,
-  FaRegImages,
-  FaRegQuestionCircle,
-} from 'react-icons/fa'
-import { NavLink } from './NavLink'
 import { SearchField } from './SearchField'
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { SubredditItem } from './SubredditItem';
-
-// https://www.flaticon.com/free-icon/frog_1838694?term=frog&related_id=1838694
-const logo = {
-  flat: 'https://cdn-icons-png.flaticon.com/512/1838/1838662.png',
-  outlineColour: 'https://cdn-icons-png.flaticon.com/512/1838/1838764.png',
-  outline: 'https://cdn-icons-png.flaticon.com/512/1838/1838694.png'
-}
+import { Logo } from './Logo';
 
 // Replace with real data from reddit api
 // reddit.com/subreddits.json
@@ -54,17 +41,7 @@ export const Sidebar = (props) => {
       {...props}
     >
       <Flex direction="column" flex="1" pt="5" pb="4" overflowY="auto" px="4">
-        <Flex h='12' align='center' justify='center' m='4'>
-          {/* <Logo color={mode('blue.600', 'blue.400')} h="6" /> */}
-          <Image
-            maxWidth='50px'
-            src={logo.outlineColour}
-          />
-          {/* <Text fontSize='3xl'>Ribbit</Text> */}
-          <Box m='2'>
-            <Heading as='span' size='lg'>Ribbit</Heading>
-          </Box>
-        </Flex>
+        <Logo h='12' w='50px' />
 
         <Box mb="6">
           <SearchField />
