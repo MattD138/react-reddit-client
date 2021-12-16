@@ -1,12 +1,5 @@
 import { Box, Divider, Flex, Heading, Image, Spacer, Stack, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
-import {
-  FaRegBell,
-  FaHome,
-  FaRegImages,
-  FaRegQuestionCircle,
-} from 'react-icons/fa'
-import { NavLink } from './NavLink'
 import { SearchField } from './SearchField'
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { SubredditItem } from './SubredditItem';

@@ -28,6 +28,7 @@ export const SubredditItem = (props) => {
         <Avatar
           size='sm'
           src={icon}
+          name={url}
         />
         <Text as='span'>{name}</Text>
       </HStack>
