@@ -3,6 +3,7 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import { Box, Flex } from '@chakra-ui/react';
 import { MobileTopBar } from './Components/Nav/MobileTopBar';
 import { Sidebar } from './Components/Nav/Sidebar';
+import { ResultsPage } from './Components/ResultsPage/ResultsPage';
 
 function App() {
   return (
@@ -16,32 +17,10 @@ function App() {
               md: 'flex',
             }}
           />
-          <Flex
-            display={{
-              base: 'none',
-              lg: 'block',
-            }}
-            width="96"
-            direction="column"
-            overflowY="auto"
-            borderRightWidth="1px"
-            p="6"
-          >
-            <Box
-              borderWidth="2px"
-              rounded="base"
-              borderStyle="dashed"
-              h="full"
-            />
-          </Flex>
-          <Flex flex="1" p="6">
-            <Box
-              borderWidth="2px"
-              rounded="base"
-              borderStyle="dashed"
-              h="full"
-              w="full"
-            />
+          <Flex flex="1" p="6" justify="center" overflowY="scroll">
+            <Box minH="full" w="min(800px, 100%)">
+              <ResultsPage />
+            </Box>
           </Flex>
         </Flex>
       </Flex>
