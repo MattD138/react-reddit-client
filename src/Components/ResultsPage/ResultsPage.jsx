@@ -57,7 +57,7 @@ const posts = [
     upvoteRatio: 0.94,
     numComments: 462,
     media:
-      '<iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2…3c4d5f3de4f5b9120b660ad850dc9&type=text%2Fhtml&schema=gfycat" width="600" height="338" scrolling="no" title="Gfycat embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe>',
+      'https://thumbs.gfycat.com/NiftyImprobableDikkops-size_restricted.gif',
     url: 'https://gfycat.com/niftyimprobabledikkops-hippopotamus',
     isSpoiler: false,
     isLocked: false,

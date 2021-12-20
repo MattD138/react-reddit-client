@@ -2,6 +2,7 @@ import {
   Box,
   Flex,
   Heading,
+  Image,
   LinkBox,
   Spacer,
   Text,
@@ -57,6 +58,8 @@ export const PostCard = props => {
         ))}
       </Box>
     );
+  } else if (media !== null) {
+    content = <Image src={media} rounded="lg" my="3" />;
   }
 
   return (
