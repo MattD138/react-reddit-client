@@ -2,10 +2,7 @@ import {
   Box,
   Flex,
   Heading,
-  Image,
-  LinkBox,
   Spacer,
-  Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 import * as React from 'react';
@@ -17,40 +14,35 @@ import { PostContentPreview } from './PostContentPreview';
 export const PostCard = props => {
   const {
     type,
-    id,
-    permalink,
     title,
     author,
     selftext,
-    subreddit_name,
     created,
-    score,
     scoreStr,
     upvoteRatio,
     numComments,
-    media,
+    mediaEmbed,
     url,
-    isSpoiler,
-    isLocked,
+    videoUrl,
   } = props.data;
-  console.log(
-    type,
-    id,
-    permalink,
-    title,
-    author,
-    selftext,
-    subreddit_name,
-    created,
-    score,
-    scoreStr,
-    upvoteRatio,
-    numComments,
-    media,
-    url,
-    isSpoiler,
-    isLocked
-  );
+  // console.log(
+  //   type,
+  //   id,
+  //   permalink,
+  //   title,
+  //   author,
+  //   selftext,
+  //   subredditName,
+  //   created,
+  //   score,
+  //   scoreStr,
+  //   upvoteRatio,
+  //   numComments,
+  //   mediaEmbed,
+  //   url,
+  //   isSpoiler,
+  //   isLocked
+  // );
 
   return (
     <Box
@@ -72,7 +64,9 @@ export const PostCard = props => {
           <Heading as="h3" size="md" mt="1" mb="2">
             {title}
           </Heading>
-          <PostContentPreview data={{ type, selftext, media }} />
+          <PostContentPreview
+            data={{ type, selftext, url, videoUrl, mediaEmbed }}
+          />
           <Spacer />
           <Flex
             wrap="wrap"

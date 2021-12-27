@@ -8,7 +8,7 @@ const timeAgo = new TimeAgo('en-AU');
 
 export const PostCredit = props => {
   const { author, created } = props;
-  const timeSinceCreated = timeAgo.format(created * 1000);
+  const timeSinceCreated = timeAgo.format(created);
 
   return (
     <Flex wrap="wrap">
