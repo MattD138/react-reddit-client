@@ -9,7 +9,7 @@ export const ResultsPage = props => {
   return (
     <VStack h="full" spacing="1.5rem" rounded="base">
       {posts.map(post => {
-        return <PostCard data={post} />;
+        return <PostCard data={post} key={post.id} />;
       })}
     </VStack>
   );

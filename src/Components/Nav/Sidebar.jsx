@@ -71,8 +71,13 @@ export const Sidebar = props => {
             Subribbits
           </Heading>
           <Stack spacing="1">
-            {subreddits.map(sub => (
-              <SubredditItem name={sub.name} icon={sub.icon} url={sub.url} />
+            {subreddits.map((sub, i) => (
+              <SubredditItem
+                name={sub.name}
+                icon={sub.icon}
+                url={sub.url}
+                key={i}
+              />
             ))}
           </Stack>
         </Stack>

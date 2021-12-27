@@ -12,10 +12,12 @@ import * as React from 'react';
 import { FaRegCommentAlt } from 'react-icons/fa';
 import { PostScore } from './PostScore';
 import { PostCredit } from './PostCredit';
+import { PostContentPreview } from './PostContentPreview';
 
 export const PostCard = props => {
   const {
     type,
+    id,
     permalink,
     title,
     author,
@@ -33,6 +35,7 @@ export const PostCard = props => {
   } = props.data;
   console.log(
     type,
+    id,
     permalink,
     title,
     author,
@@ -49,21 +52,8 @@ export const PostCard = props => {
     isLocked
   );
 
-  let content = null;
-  if (selftext !== '') {
-    content = (
-      <Box my="3">
-        {selftext.split('\n\n').map(line => (
-          <Text>{line}</Text>
-        ))}
-      </Box>
-    );
-  } else if (media !== null) {
-    content = <Image src={media} rounded="lg" my="3" />;
-  }
-
   return (
-    <LinkBox
+    <Box
       w="full"
       px="1"
       py="2.5"
@@ -82,9 +72,7 @@ export const PostCard = props => {
           <Heading as="h3" size="md" mt="1" mb="2">
             {title}
           </Heading>
-          {/*Non-reddit images by img tag, media by iframe tag*/}
-          {/*https://stackoverflow.com/questions/1248849/converting-sanitised-html-back-to-displayable-html*/}
-          {content}
+          <PostContentPreview data={{ type, selftext, media }} />
           <Spacer />
           <Flex
             wrap="wrap"
@@ -100,6 +88,6 @@ export const PostCard = props => {
           </Flex>
         </Flex>
       </Flex>
-    </LinkBox>
+    </Box>
   );
 };
