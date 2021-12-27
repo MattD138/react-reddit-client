@@ -109,7 +109,7 @@ export const feedSlice = createSlice({
         const post = {
           id: data['id'],
           permalink: data['permalink'],
-          title: data['title'],
+          title: htmlDecode(data['title']),
           author: data['author'],
           selftext: data['selftext'],
           selftextHtml: data['selftext_html'],
