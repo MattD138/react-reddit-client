@@ -4,36 +4,22 @@ import {
   Flex,
   Heading,
   Spacer,
+  Spinner,
   Stack,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
-import * as React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectActiveFeed } from '../../features/feed/feedSlice';
+import {
+  selectAllSubreddits,
+  selectSubredditsLoading,
+} from '../../features/subreddits/subredditsSlice';
+import { getSubreddits } from '../../features/subreddits/subredditsSlice';
 import { SearchField } from './SearchField';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { SubredditItem } from './SubredditItem';
 import { Logo } from './Logo';
-
-// Replace with real data from reddit api
-// reddit.com/subreddits.json
-const subreddits = [
-  {
-    name: 'AskReddit',
-    icon: 'https://b.thumbs.redditmedia.com/EndDxMGB-FTZ2MGtjepQ06cQEkZw_YQAsOUudpb9nSQ.png',
-    url: '/r/AskReddit/',
-  },
-  {
-    name: 'formula1',
-    icon: 'https://b.thumbs.redditmedia.com/0NRxOirM7gxfFYVJ2tVGKyzvcL1t6yit3K1aAa-EDfI.png',
-    url: '/r/formula1/',
-  },
-  {
-    name: 'news',
-    icon: 'https://a.thumbs.redditmedia.com/E0Bkwgwe5TkVLflBA7WMe9fMSC7DV2UOeff-UpNJeb0.png',
-    url: '/r/news/',
-  },
-];
 
 const popularSubreddit = {
   name: 'Popular',
@@ -42,7 +28,15 @@ const popularSubreddit = {
 };
 
 export const Sidebar = props => {
+  const dispatch = useDispatch();
   const activeFeed = useSelector(selectActiveFeed);
+  const subreddits = useSelector(selectAllSubreddits);
+  const isLoading = useSelector(selectSubredditsLoading);
+
+  // Fetch subreddits from reddit json api
+  useEffect(() => {
+    dispatch(getSubreddits());
+  }, [dispatch]);
 
   return (
     <Flex
@@ -74,17 +68,23 @@ export const Sidebar = props => {
           <Heading as="span" size="sm" textTransform="uppercase">
             Subribbits
           </Heading>
-          <Stack spacing="1">
-            {subreddits.map((sub, i) => (
-              <SubredditItem
-                name={sub.name}
-                icon={sub.icon}
-                url={sub.url}
-                key={sub.name}
-                isActive={activeFeed === sub.name}
-              />
-            ))}
-          </Stack>
+          {isLoading ? (
+            <Box textAlign="center">
+              <Spinner />
+            </Box>
+          ) : (
+            <Stack spacing="1">
+              {subreddits.map(sub => (
+                <SubredditItem
+                  name={sub.name}
+                  icon={sub.icon}
+                  url={sub.url}
+                  key={sub.name}
+                  isActive={activeFeed === sub.name}
+                />
+              ))}
+            </Stack>
+          )}
         </Stack>
         <Spacer />
       </Flex>

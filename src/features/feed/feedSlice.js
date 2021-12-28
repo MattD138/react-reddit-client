@@ -37,7 +37,7 @@ export const feedSlice = createSlice({
     [getPostsForFeed.pending]: (state, action) => {
       console.log('getPostsForFeed loading');
       state.isLoading = true;
-      state.isError = null;
+      state.error = null;
     },
     [getPostsForFeed.fulfilled]: (state, action) => {
       console.log('getPostsForFeed payload', action.payload);
