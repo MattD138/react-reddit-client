@@ -35,7 +35,9 @@ export const Sidebar = props => {
 
   // Fetch subreddits from reddit json api
   useEffect(() => {
-    dispatch(getSubreddits());
+    if (subreddits.length === 0) {
+      dispatch(getSubreddits());
+    }
   }, [dispatch]);
 
   return (
