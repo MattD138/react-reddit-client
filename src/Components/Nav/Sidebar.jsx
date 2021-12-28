@@ -8,6 +8,8 @@ import {
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { selectActiveFeed } from '../../features/feed/feedSlice';
 import { SearchField } from './SearchField';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { SubredditItem } from './SubredditItem';
@@ -40,6 +42,8 @@ const popularSubreddit = {
 };
 
 export const Sidebar = props => {
+  const activeFeed = useSelector(selectActiveFeed);
+
   return (
     <Flex
       bg={mode('gray.50', 'gray.800')}
@@ -61,7 +65,7 @@ export const Sidebar = props => {
               name={popularSubreddit.name}
               icon={popularSubreddit.icon}
               url={popularSubreddit.url}
-              isActive
+              isActive={activeFeed === popularSubreddit.name}
             />
           </Stack>
 
@@ -76,7 +80,8 @@ export const Sidebar = props => {
                 name={sub.name}
                 icon={sub.icon}
                 url={sub.url}
-                key={i}
+                key={sub.name}
+                isActive={activeFeed === sub.name}
               />
             ))}
           </Stack>
