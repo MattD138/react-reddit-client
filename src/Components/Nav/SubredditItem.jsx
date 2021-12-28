@@ -11,7 +11,7 @@ import { setFeed } from '../../features/feed/feedSlice';
 
 export const SubredditItem = props => {
   const dispatch = useDispatch();
-  const { name, icon, url, isActive } = props;
+  const { name, icon, isActive } = props;
 
   return (
     <Link

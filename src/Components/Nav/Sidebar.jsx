@@ -58,7 +58,6 @@ export const Sidebar = props => {
             <SubredditItem
               name={popularSubreddit.name}
               icon={popularSubreddit.icon}
-              url={popularSubreddit.url}
               isActive={activeFeed === popularSubreddit.name}
             />
           </Stack>
@@ -78,7 +77,6 @@ export const Sidebar = props => {
                 <SubredditItem
                   name={sub.name}
                   icon={sub.icon}
-                  url={sub.url}
                   key={sub.name}
                   isActive={activeFeed === sub.name}
                 />
