@@ -1,72 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { htmlDecode } from './helpers';
 
-const samplePosts = [
-  {
-    type: 'self',
-    id: 'a1',
-    permalink:
-      '/r/AskReddit/comments/rik4cn/what_is_something_that_was_used_heavily_in_the/',
-    title:
-      "What is something that was used heavily in the year 2000, but it's almost never used today?",
-    author: 'BtownBrelooms',
-    selftext: `I just want you for my own
-    More than you could ever know
-    Make my wish come true
-    All I want for Christmas is you`,
-    subredditName: 'r/AskReddit',
-    created: 1639755668,
-    score: 50103,
-    scoreStr: '50.1k',
-    upvoteRatio: 0.89,
-    numComments: 33420,
-    mediaEmbed: null,
-    url: null,
-    isSpoiler: false,
-    isLocked: false,
-  },
-  {
-    type: 'image',
-    id: 'b2',
-    permalink: '/r/pics/comments/rouy9r/just_a_hotel_in_china/',
-    title: 'Just a hotel in China',
-    author: 'warzoku',
-    selftext: '',
-    subredditName: 'r/pics',
-    created: 1640516978,
-    score: 6072,
-    scoreStr: '6072',
-    upvoteRatio: 0.95,
-    numComments: 266,
-    mediaEmbed: 'https://i.redd.it/jn4gt7hodv781.jpg',
-    url: 'https://i.redd.it/jn4gt7hodv781.jpg',
-    isSpoiler: false,
-    isLocked: false,
-  },
-  {
-    type: 'media',
-    id: 'c3',
-    permalink: '/r/Eyebleach/comments/rif5wa/hippo_attack/',
-    title: 'Hippo Attack',
-    author: 'ToughAcanthisitta451',
-    selftext: '',
-    subredditName: 'r/Eyebleach',
-    created: 1639739432,
-    score: 31615,
-    scoreStr: '31.6k',
-    upvoteRatio: 0.94,
-    numComments: 462,
-    mediaEmbed:
-      '<iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fgfycat.com%2Fifr%2Fniftyimprobabledikkops&display_name=Gfycat&url=https%3A%2F%2Fgfycat.com%2Fniftyimprobabledikkops-hippopotamus&image=https%3A%2F%2Fthumbs.gfycat.com%2FNiftyImprobableDikkops-size_restricted.gif&key=2aa3c4d5f3de4f5b9120b660ad850dc9&type=text%2Fhtml&schema=gfycat" width="600" height="338" scrolling="no" title="Gfycat embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe>',
-    url: 'https://gfycat.com/niftyimprobabledikkops-hippopotamus',
-    isSpoiler: false,
-    isLocked: false,
-  },
-];
-
 const initialState = {
   activeFeed: 'Popular',
-  posts: samplePosts,
+  posts: [],
   currentPost: null,
   isLoading: false,
   error: null,
