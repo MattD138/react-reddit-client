@@ -17,6 +17,7 @@ export const PostCard = props => {
     title,
     author,
     selftext,
+    subredditName,
     created,
     scoreStr,
     upvoteRatio,
@@ -60,7 +61,11 @@ export const PostCard = props => {
       <Flex direction="row">
         <PostScore score={scoreStr} />
         <Flex direction="column" mx={{ base: '2', md: '4' }} w="full">
-          <PostCredit author={author} created={created} />
+          <PostCredit
+            author={author}
+            created={created}
+            subredditName={subredditName}
+          />
           <Heading as="h3" size="md" mt="1" mb="2">
             {title}
           </Heading>

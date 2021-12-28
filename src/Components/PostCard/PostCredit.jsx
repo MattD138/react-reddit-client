@@ -7,11 +7,20 @@ TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo('en-AU');
 
 export const PostCredit = props => {
-  const { author, created } = props;
+  const { author, created, subredditName } = props;
   const timeSinceCreated = timeAgo.format(created);
 
   return (
     <Flex wrap="wrap">
+      <Text
+        as="span"
+        fontSize="xs"
+        me="1"
+        color="gray.500"
+        fontWeight="semibold"
+      >
+        {subredditName}
+      </Text>
       <Text as="span" fontSize="xs" me="1" color="gray.500">
         Posted by {author}
       </Text>
