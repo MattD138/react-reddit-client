@@ -38,7 +38,7 @@ export const SubredditItem = props => {
       }}
     >
       <HStack spacing="4">
-        <Avatar size="sm" src={icon} name={url} />
+        <Avatar size="sm" src={icon} name={name} />
         <Text as="span">{name}</Text>
       </HStack>
     </Link>
