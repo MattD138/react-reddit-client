@@ -44,23 +44,28 @@ export const Sidebar = props => {
       direction="column"
       borderRightWidth="1px"
       width="64"
+      maxH="100vh"
       {...props}
     >
-      <Flex direction="column" flex="1" pt="5" pb="4" overflowY="auto" px="4">
+      <Flex direction="column" flex="1" pt="5" pb="4" px="4" maxH="full">
         <Logo h="12" w="50px" />
 
         <Box mb="6">
           <SearchField />
         </Box>
 
-        <Stack spacing="6" as="nav" aria-label="Sidebar Navigation">
-          <Stack spacing="1">
-            <SubredditItem
-              name={popularSubreddit.name}
-              icon={popularSubreddit.icon}
-              isActive={activeFeed === popularSubreddit.name}
-            />
-          </Stack>
+        <Stack
+          spacing="6"
+          as="nav"
+          aria-label="Sidebar Navigation"
+          minH="0"
+          h="full"
+        >
+          <SubredditItem
+            name={popularSubreddit.name}
+            icon={popularSubreddit.icon}
+            isActive={activeFeed === popularSubreddit.name}
+          />
 
           <Divider />
 
@@ -68,11 +73,11 @@ export const Sidebar = props => {
             Subribbits
           </Heading>
           {isLoading ? (
-            <Box textAlign="center">
+            <Box textAlign="center" h="full">
               <Spinner />
             </Box>
           ) : (
-            <Stack spacing="1">
+            <Stack spacing="1" overflowY="scroll">
               {subreddits.map(sub => (
                 <SubredditItem
                   name={sub.name}
@@ -83,11 +88,10 @@ export const Sidebar = props => {
               ))}
             </Stack>
           )}
+          <Spacer />
+          <ColorModeSwitcher />
         </Stack>
-        <Spacer />
       </Flex>
-
-      <ColorModeSwitcher />
     </Flex>
   );
 };
