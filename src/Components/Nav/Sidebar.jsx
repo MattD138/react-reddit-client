@@ -35,8 +35,10 @@ export const Sidebar = props => {
 
   // Fetch subreddits from reddit json api
   useEffect(() => {
-    dispatch(getSubreddits());
-  }, [dispatch]);
+    if (subreddits.length === 0) {
+      dispatch(getSubreddits());
+    }
+  }, [dispatch, subreddits]);
 
   return (
     <Flex
