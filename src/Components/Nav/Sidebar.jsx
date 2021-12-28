@@ -3,7 +3,6 @@ import {
   Divider,
   Flex,
   Heading,
-  Spacer,
   Spinner,
   Stack,
   useColorModeValue as mode,
@@ -79,7 +78,7 @@ export const Sidebar = props => {
               <Spinner />
             </Box>
           ) : (
-            <Stack spacing="1" overflowY="scroll">
+            <Stack spacing="1" h="full" overflowY="scroll">
               {subreddits.map(sub => (
                 <SubredditItem
                   name={sub.name}
@@ -90,7 +89,7 @@ export const Sidebar = props => {
               ))}
             </Stack>
           )}
-          <Spacer />
+
           <ColorModeSwitcher />
         </Stack>
       </Flex>
