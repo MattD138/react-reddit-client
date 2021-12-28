@@ -1,10 +1,23 @@
 import * as React from 'react';
-import { Avatar, HStack, Link, Text, useColorModeValue as mode } from '@chakra-ui/react';
+import {
+  Avatar,
+  HStack,
+  Link,
+  Text,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+import { setFeed } from '../../features/feed/feedSlice';
 
-export const SubredditItem = (props) => {
+export const SubredditItem = props => {
+  const dispatch = useDispatch();
   const { name, icon, url, isActive } = props;
+
   return (
     <Link
+      onClick={() => {
+        dispatch(setFeed(name));
+      }}
       display="block"
       py="2"
       px="3"
@@ -24,14 +37,10 @@ export const SubredditItem = (props) => {
         color: 'inherit',
       }}
     >
-      <HStack spacing='4'>
-        <Avatar
-          size='sm'
-          src={icon}
-          name={url}
-        />
-        <Text as='span'>{name}</Text>
+      <HStack spacing="4">
+        <Avatar size="sm" src={icon} name={url} />
+        <Text as="span">{name}</Text>
       </HStack>
     </Link>
-  )
-}
+  );
+};
