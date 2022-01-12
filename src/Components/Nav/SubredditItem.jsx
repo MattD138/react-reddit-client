@@ -39,7 +39,9 @@ export const SubredditItem = props => {
     >
       <HStack spacing="4">
         <Avatar size="sm" src={icon} name={name} />
-        <Text as="span">{name}</Text>
+        <Text as="span" isTruncated>
+          {name}
+        </Text>
       </HStack>
     </Link>
   );
